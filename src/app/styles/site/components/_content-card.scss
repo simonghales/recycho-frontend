@@ -1,0 +1,105 @@
+.content-card-wrapper {
+
+  &.type--placeholder {
+    pointer-events: none;
+  }
+
+}
+
+.content-card {
+  @include box-shadow-multi(0 0 2px rgba(0,0,0,0.05), 0 2px 14px rgba(149,169,208,0.18));
+  @include border-radius(6px);
+  background-color: #ffffff;
+}
+
+  .content-card__header,
+  .content-card__options {
+    padding: 19px 13px;
+  }
+
+  .content-card__header {
+    color: #4F7AA3;
+    font-size: 16px;
+    font-weight: 700;
+
+    .type--placeholder & {
+      color: transparent;
+
+      h3 {
+        background-color: #F2F5F7;
+        display: inline-block;
+        width: 100%;
+        max-width: 280px;
+        line-height: 22px;
+      }
+
+    }
+
+  }
+
+  .content-card__body {
+
+    .type--link & ,
+    .type--placeholder & {
+      background-color: #F8FAFC;
+      //background-color: #F2F5F7;
+    }
+
+    .type--placeholder & {
+      min-height: 230px;
+    }
+
+  }
+
+    .content-card__options {
+      @extend .clearfix;
+      padding: 13px 13px;
+
+      .left-buttons {
+        float: left;
+
+        .btn {
+          margin-right: 10px;
+        }
+
+      }
+
+      .right-button {
+        float: right;
+      }
+
+      .type--placeholder & {
+        //visibility: hidden;
+
+        .icon {
+          color: transparent;
+        }
+
+        .count {
+          visibility: hidden;
+        }
+
+      }
+
+    }
+
+.content-card__footer {
+  @extend .clearfix;
+  margin-top: 10px;
+  padding: 0 14px;
+
+  .type--placeholder & {
+    visibility: hidden;
+  }
+
+  .text--options {
+    float: left;
+  }
+
+  .card--detail {
+    margin-top: -2px;
+    text-align: right;
+    float: right;
+  }
+
+}

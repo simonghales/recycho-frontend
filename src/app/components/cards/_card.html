@@ -1,0 +1,53 @@
+<div class="content-card-wrapper main-layout__feed__item type--{{::submission.type}}">
+  <div class="content-card">
+    <div class="content-card__header">
+      <h3>
+        <a ui-sref="post" ng-bind="::submission.title"></a>
+      </h3>
+    </div>
+    <card-content-link ng-if="::submission.type === 'link'"></card-content-link>
+    <card-content-image ng-if="::submission.type === 'image'"></card-content-image>
+    <card-content-youtube ng-if="::submission.type === 'youtube'"></card-content-youtube>
+    <card-content-soundcloud ng-if="::submission.type === 'soundcloud'"></card-content-soundcloud>
+    <div class="content-card__options">
+      <div class="left-buttons">
+        <button
+          ng-click="cardVM.toggleStar();"
+          ng-class="{
+            'state--active': cardVM.states.starred
+          }"
+          class="btn btn-icon-count">
+          <span class="icon icon-star"></span>
+          <span class="count" ng-bind="submission.starred_count | number"></span>
+        </button>
+        <button class="btn btn-icon-count">
+          <span class="icon icon-chat"></span>
+          <span class="count" ng-bind="::submission.comments_count | number"></span>
+        </button>
+      </div>
+      <button class="btn btn-icon right-button">
+        <span class="icon icon-share"></span>
+      </button>
+    </div>
+  </div>
+  <div class="content-card__footer">
+    <p class="text--options">
+      <a
+        class="anchor-like"
+        ng-click="cardVM.moreLikeThis();"
+        ng-class="{
+          'state--active': cardVM.states.more
+        }">More Like This</a>
+      <span class="divider">-</span>
+      <a
+        class="anchor-like"
+        ng-click="cardVM.lessLikeThis();"
+        ng-class="{
+          'state--active': cardVM.states.less
+        }">Less Like This</a>
+    </p>
+    <p class="card--detail text--small">
+      submitted <span>x time ago</span> by <a href="">username</a>
+    </p>
+  </div>
+</div>

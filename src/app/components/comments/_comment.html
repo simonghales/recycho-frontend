@@ -1,0 +1,32 @@
+<div class="comment-wrapper">
+  <div class="comment">
+    <header class="comment__header">
+      <a class="comment__header__bit title--medium comment__poster-name" href="">simonghales</a>
+      <span class="comment__header__bit comment__points"><span ng-bind="(commentVM.data.points + commentVM.data.voteOffset)"></span> points</span>
+      <span class="comment__header__bit comment__when">2 days ago</span>
+    </header>
+    <div class="comment__body">
+      <p class="text--comment" ng-bind="::comment.text"></p>
+    </div>
+    <footer class="comment__footer">
+      <a ng-click="commentVM.openReply();">reply</a>
+      <a href="">report</a>
+    </footer>
+  </div>
+  <form ng-if="commentVM.states.replying" class="comments__form">
+    <div class="comments__form__input-wrapper">
+      <textarea ng-model="commentVM.models.reply" class="comments__form__input textarea--plain" placeholder="Enter a comment"></textarea>
+    </div>
+    <div class="comment-form__options">
+      <button ng-class="{
+                'state--disabled': !commentVM.models.reply
+              }"
+              class="comments__form__post btn btn--submit">Reply</button>
+      <button ng-click="commentVM.closeReply();"
+              class="comments__form__post btn btn--submit plain">Cancel</button>
+    </div>
+  </form>
+  <div ng-if="comment.replies.length > 0" class="comment__replies">
+    <comment ng-repeat="comment in comment.replies"></comment>
+  </div>
+</div>

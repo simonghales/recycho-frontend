@@ -1,0 +1,56 @@
+%input--reset {
+  border: 0;
+  background: none;
+  font-size: 1em;
+
+  &:focus {
+    outline: none;
+  }
+
+}
+
+.input {
+  @extend %input--reset;
+}
+
+.input--light {
+  @include border-radius(5px);
+  @include box-shadow-multi(inset 0 0 5px rgba(149,211,255,0.1));
+  width: 100%;
+  background-color: #FCFDFE;
+  border: 0;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px;
+
+  @include placeholder {
+    color: #A6BDCD;
+  }
+
+  &:focus {
+    background-color: #F2F8FD;
+  }
+
+}
+
+.textarea--plain {
+  @extend %input--reset;
+  @include border-radius(4px);
+  width: 100%;
+  resize: none;
+  height: 100px;
+  border: 1px solid rgba(214, 223, 232, 0.34);
+  font-size: 14px;
+  padding: 10px;
+  background-color: rgba(214, 223, 232, 0.34);
+
+  @include placeholder {
+    color: #91A4B9;
+  }
+
+  &:focus {
+    background-color: rgba(214, 223, 232, 0.44);
+    border-color: rgba(214, 223, 232, 1);
+  }
+
+}

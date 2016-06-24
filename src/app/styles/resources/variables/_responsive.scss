@@ -1,0 +1,26 @@
+$breakpoints: (
+  mobile-default: 788px,
+  mobile-small: 370px,
+  default: 789px
+);
+
+@mixin breakpoint($point) {
+  @if $point == mobile-default {
+    @media (max-width: map_get($breakpoints, mobile-default))  { @content; }
+  }
+  @if $point == mobile-small {
+    @media (max-width: map_get($breakpoints, mobile-small))  { @content; }
+  }
+  @else if $point { // allows custom breakpoints
+    @media (max-width: $point) { @content; }
+  }
+}
+
+@mixin growpoint($point) {
+  @if $point == default {
+    @media (min-width: map_get($breakpoints, default))  { @content; }
+  }
+  @else if $point { // allows custom breakpoints
+    @media (min-width: $point) { @content; }
+  }
+}

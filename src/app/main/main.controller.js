@@ -1,32 +1,39 @@
+const _$log = new WeakMap();
+const _$timeout = new WeakMap();
+const _DATA_SUBMISSIONS = new WeakMap();
+
 export class MainController {
-  constructor ($timeout, webDevTec, toastr) {
+  constructor ($log, $timeout, DATA_SUBMISSIONS) {
     'ngInject';
 
-    this.awesomeThings = [];
-    this.classAnimation = '';
-    this.creationDate = 1466774166669;
-    this.toastr = toastr;
+    // set up params
+    _$log.set(this, $log);
+    _$timeout.set(this, $timeout);
+    _DATA_SUBMISSIONS.set(this, DATA_SUBMISSIONS);
 
-    this.activate($timeout, webDevTec);
+    this.data = {
+      submissions: null
+    };
+
+    this.states = {
+      loading: true
+    };
+
+    this._activate();
+
   }
 
-  activate($timeout, webDevTec) {
-    this.getWebDevTec(webDevTec);
-    $timeout(() => {
-      this.classAnimation = 'rubberBand';
-    }, 4000);
+  _activate() {
+
+    _$timeout.get(this)(function() {
+      this._loadFeed();
+    }, 1800);
+
   }
 
-  getWebDevTec(webDevTec) {
-    this.awesomeThings = webDevTec.getTec();
-
-    angular.forEach(this.awesomeThings, (awesomeThing) => {
-      awesomeThing.rank = Math.random();
-    });
+  _loadFeed() {
+    this.data.submissions = _DATA_SUBMISSIONS.get(this).submissions;
+    this.states.loading = false;
   }
 
-  showToastr() {
-    this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-    this.classAnimation = '';
-  }
 }

@@ -1,0 +1,35 @@
+<section class="page page--default">
+  <div class="content--centered">
+    <div class="main-layout">
+      <section class="main-layout__feed">
+
+        <div ng-if="postVM.states.loading" class="placeholder-submission">
+          <card-placeholder></card-placeholder>
+        </div>
+        <div>
+          <card ng-if="!postVM.states.loading" submission="postVM.data.submission"></card>
+        </div>
+
+        <section class="comments-wrapper">
+
+          <form class="comments-form comments__section form form--plain">
+            <textarea class="comments-form__input textarea textarea--plain"
+              placeholder="Enter a comment"></textarea>
+            <button class="btn btn--submit">
+              Post
+            </button>
+          </form>
+
+          <section class="comments comments__section">
+            <comment ng-repeat="comment in postVM.data.comments"></comment>
+          </section>
+
+        </section>
+
+      </section>
+      <aside class="main-layout__aside">
+        STUFF
+      </aside>
+    </div>
+  </div>
+</section>

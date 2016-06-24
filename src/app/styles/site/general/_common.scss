@@ -1,0 +1,42 @@
+.content--centered {
+  width: 100%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include breakpoint(mobile-default) {
+    padding: 0 16px;
+  }
+
+}
+
+.flex-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.thumbnail {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.page--animated {
+  transform: translateZ(0);
+
+  &.ng-enter {
+    animation: slideInRight .7s cubic-bezier(.825,0,.5,1);
+  }
+
+  &.ng-leave {
+    animation: slideOutLeft .7s cubic-bezier(.825,0,.5,1);
+    position: fixed;
+    //top: #{map_get(map_get($general, header), height)};
+    left: 0;
+    right: 0;
+  }
+
+}

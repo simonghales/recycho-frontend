@@ -1,0 +1,22 @@
+.submission-layout {
+  padding-top: 80px; // temporary
+  padding-bottom: 120px; // temporary
+}
+
+  .submission-layout__aside {
+    width: 355px;
+    float: right;
+    height: 500px;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 50;
+  }
+
+  .submission-layout__main {
+
+    .content-card-wrapper {
+      float: left;
+      max-width: 641px;
+    }
+
+  }

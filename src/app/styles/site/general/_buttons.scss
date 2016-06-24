@@ -1,0 +1,100 @@
+
+%btn--reset {
+  @extend %font--default;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+}
+
+.btn {
+  @extend %btn--reset;
+}
+
+.btn-icon {
+  color: #D1D8DC;
+
+  &:hover {
+    color: #97AAB5;
+  }
+
+  &.state--active {
+    @include transition(color 150ms ease);
+    color: #FB5823;
+
+    .icon {
+      animation: pulseBig 200ms cubic-bezier(.825,0,.5,1);
+      background-color: #FB5823;
+      color: #ffffff;
+    }
+
+  }
+
+  .icon {
+    @include transition(transform 150ms ease);
+    @include border-radius(50%);
+    width: 27px;
+    height: 27px;
+    display: inline-block;
+    background-color: #F5F8FA;
+    font-size: 13px;
+    text-align: center;
+    line-height: 27px;
+  }
+
+}
+
+.btn-icon-count {
+  @extend .btn-icon;
+
+  .count {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+}
+
+.btn--action {
+  @include border-radius(5px);
+  //background-color: #C0E5FF;
+  background-color: #5FBDFF;
+  color: #ffffff;
+  font-size: 17px;
+  padding: 12px;
+  text-transform: uppercase;
+  width: 100%;
+
+  &.state--active {
+    background-color: #1FA3FF;
+  }
+
+}
+
+.btn--submit {
+  @include border-radius(3px);
+  background-color: #5FBDFF;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+
+  &.state--active {
+    background-color: #1FA3FF;
+  }
+
+  &.plain {
+    background: none;
+    color: #8EAFD0;
+    padding: 6px;
+  }
+
+}
